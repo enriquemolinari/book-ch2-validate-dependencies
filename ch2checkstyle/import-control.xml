@@ -9,13 +9,15 @@
 	<!-- Java packages are allowed for all layers / modules -->
 	<allow pkg="java*.*" regex="true" />
 	
-	<!-- app.domain ... -->
+	<!-- app.domain only talk to app.domain.api -->
 	<subpackage name="domain">
 		<allow pkg="app.domain.api" />
 		<disallow pkg="app.notifications" />
 		<disallow pkg="app.payments" />
 	</subpackage>
 
+	<!-- app.notifications only talk to app.domain.api -->
+	<!-- and bigqueue library -->
 	<subpackage name="notifications">
 		<allow pkg="app.domain.api" />
 		<allow pkg="com.leansoft.bigqueue"/>
@@ -23,6 +25,7 @@
 		<disallow pkg="app.payments" />
 	</subpackage>
 
+	<!-- app.payment only talk to app.domain.api -->
 	<subpackage name="payment">
 		<allow pkg="app.domain.api" />
 		<disallow pkg="app.domain" />
