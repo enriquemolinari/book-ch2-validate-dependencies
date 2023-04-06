@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+	<bean class="domain.Cashier">
+		<constructor-arg index="0" ref="gateway" />
+		<constructor-arg index="1" ref="queue" />
+	</bean>
+
+	<bean id="gateway" class="payment.PayMePleasePaymentGateway">
+		<constructor-arg index="0" value="https://paymeplease-gateway.com" />
+	</bean>
+
+	<bean id="queue"
+		class="notifications.BigQueueNotify">
+		<constructor-arg index="0" value="/home/enrique" />
+		<constructor-arg index="1" value="notification-queue" />
+	</bean>
+</beans>

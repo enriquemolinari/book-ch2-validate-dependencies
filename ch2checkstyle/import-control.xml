@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE import-control PUBLIC
+        "-//Puppy Crawl//DTD Import Control 1.4//EN"
+        "http://checkstyle.sourceforge.net/dtds/import_control_1_4.dtd">
+
+<!-- import-control requires a root package to work best -->
+<!-- import-control does not detect fully qualified class name in source code -->
+<import-control pkg="app">
+	<!-- Java packages are allowed for all layers / modules -->
+	<allow pkg="java*.*" regex="true" />
+	
+	<!-- app.domain ... -->
+	<subpackage name="domain">
+		<allow pkg="app.domain.api" />
+		<disallow pkg="app.notifications" />
+		<disallow pkg="app.payments" />
+	</subpackage>
+
+	<subpackage name="notifications">
+		<allow pkg="app.domain.api" />
+		<allow pkg="com.leansoft.bigqueue"/>
+		<disallow pkg="app.domain" />
+		<disallow pkg="app.payments" />
+	</subpackage>
+
+	<subpackage name="payment">
+		<allow pkg="app.domain.api" />
+		<disallow pkg="app.domain" />
+		<disallow pkg="app.notifications" />
+	</subpackage>
+	
+</import-control>
