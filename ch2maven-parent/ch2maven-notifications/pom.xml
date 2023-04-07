@@ -5,8 +5,7 @@
 		<artifactId>parent-module</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<groupId>notifications</groupId>
-	<artifactId>notifications</artifactId>
+	<artifactId>ch2maven-notifications</artifactId>
 
 	<!-- Repository Required for BigQueue -->
 	<repositories>
@@ -18,8 +17,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>domain</groupId>
-			<artifactId>domain</artifactId>
+			<groupId>ch2maven</groupId>
+			<artifactId>ch2maven-domainapi</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 
@@ -28,6 +27,6 @@
 			<artifactId>bigqueue</artifactId>
 			<version>0.7.0</version>
 		</dependency>
-
 	</dependencies>
+
 </project>

@@ -7,13 +7,26 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>notifications</module>
-		<module>payment</module>
-		<module>domain</module>
-		<module>main</module>
+		<module>ch2maven-domainapi</module>
+		<module>ch2maven-domain</module>
+		<module>ch2maven-notifications</module>
+		<module>ch2maven-payment</module>
+		<module>ch2maven-main</module>
 	</modules>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.github.ferstl</groupId>
+					<artifactId>depgraph-maven-plugin</artifactId>
+					<version>4.0.2</version>
+					<configuration>
+						<graphFormat>gml</graphFormat>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

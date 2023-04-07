@@ -5,26 +5,23 @@
 		<artifactId>parent-module</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<groupId>main</groupId>
-	<artifactId>main</artifactId>
-	
-		<dependencies>
-		<dependency>
-			<groupId>domain</groupId>
-			<artifactId>domain</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>notifications</groupId>
-			<artifactId>notifications</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>payment</groupId>
-			<artifactId>payment</artifactId>
-			<version>0.0.1</version>
-		</dependency>
+	<artifactId>ch2maven-main</artifactId>
 
-
+	<dependencies>
+		<dependency>
+			<groupId>ch2maven</groupId>
+			<artifactId>ch2maven-notifications</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>ch2maven</groupId>
+			<artifactId>ch2maven-payment</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>ch2maven</groupId>
+			<artifactId>ch2maven-domain</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 </project>
