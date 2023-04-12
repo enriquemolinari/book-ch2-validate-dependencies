@@ -10,17 +10,12 @@ public class Main {
 
   public static void main(String args[]) throws IOException {
 
-    // injecting myself - package private does not work
-    // new Cashier(
-    // new PayMePleasePaymentGateway("https://paymeplease-gateway.com"),
-    // new BigQueue("/home/enrique", "notification-queue"))
-    // .pay(new BigDecimal(1000), new CreditCard("dd", "dd"), "sd");
-
     // injecting by spring, package private works for notifications and payment
     // but I cannot restrict notifications and payment to reference other classes from domain
     @SuppressWarnings("resource")
     var context = new ClassPathXmlApplicationContext("injection-config.xml");
     Cashier cashier = context.getBean(domain.Cashier.class);
-    cashier.pay(new BigDecimal(1000), new CreditCard("dd", "dd"), "sd");
+    cashier.pay(new BigDecimal(1000), new CreditCard("362-658-125", "985"),
+        "user@em.com");
   }
 }
