@@ -1,50 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="validating-dependencies" default="compile-all">
 
-	<property name="maven-local-repo" value="/home/enrique/.m2/repository"/>
-	
-	<target name="compile-all" depends="clean, compile-domain, compile-notifications, compile-payment"/>
-	
+	<property name="maven-local-repo" value="/home/enrique/.m2/repository" />
+
+	<target name="compile-all" depends="clean, compile-domain, compile-notifications, compile-payment" />
+
 	<target name="clean">
-		<delete dir="build"/>
+		<delete dir="build" />
 	</target>
-	
+
 	<!-- compile domain.api -->
-	<target name="compile-api-of-domain" depends="clean">
-		<mkdir dir="build/classes-api-of-domain" />
-		<javac sourcepath="" srcdir="src" destdir="build/classes-api-of-domain" includes="domain/api/*.java" includeantruntime="false">
-		</javac>
+	<target name="compile-domain-api" depends="clean">
+		<mkdir dir="build/classes-domain-api" />
+		<javac sourcepath="" srcdir="src" destdir="build/classes-domain-api" includes="domain/api/*.java" includeantruntime="false" />
 	</target>
 
 	<!-- compile domain -->
-	<target name="compile-domain" depends="compile-api-of-domain">
+	<target name="compile-domain" depends="compile-domain-api">
 		<path id="lib.path.ref">
-			<dirset dir="build/classes-api-of-domain"/>
+			<dirset dir="build/classes-domain-api" />
 		</path>
 		<mkdir dir="build/classes-domain" />
-		<javac sourcepath="" classpathref="lib.path.ref" srcdir="src" destdir="build/classes-domain" 
-			includes="domain/*.java" excludes="domain/api/*.java" includeantruntime="false"/>
+		<javac sourcepath="" classpathref="lib.path.ref" srcdir="src" destdir="build/classes-domain" includes="domain/*.java" excludes="domain/api/*.java" includeantruntime="false" />
 	</target>
-	
+
 	<!-- compile notifications -->
-	<target name="compile-notifications" depends="compile-api-of-domain">
+	<target name="compile-notifications" depends="compile-domain-api">
 		<path id="lib.path.ref">
 			<fileset dir="${maven-local-repo}/com/leansoft/bigqueue/0.7.0" includes="bigqueue-0.7.0.jar" />
-			<dirset dir="build/classes-api-of-domain"/>
+			<dirset dir="build/classes-domain-api" />
 		</path>
 		<mkdir dir="build/classes-notifications" />
-		<javac sourcepath="" classpathref="lib.path.ref" srcdir="src" destdir="build/classes-notifications" 
-			includes="notifications/*.java" includeantruntime="false"/>
+		<javac sourcepath="" classpathref="lib.path.ref" srcdir="src" destdir="build/classes-notifications" includes="notifications/*.java" includeantruntime="false" />
 	</target>
 
 	<!-- compile payment -->
-	<target name="compile-payment" depends="compile-api-of-domain">
+	<target name="compile-payment" depends="compile-domain-api">
 		<path id="lib.path.ref">
-			<dirset dir="build/classes-api-of-domain"/>
+			<dirset dir="build/classes-domain-api" />
 		</path>
 		<mkdir dir="build/classes-payment" />
-		<javac sourcepath="" classpathref="lib.path.ref" srcdir="src" destdir="build/classes-payment" 
-			includes="payment/*.java" includeantruntime="false"/>
+		<javac sourcepath="" classpathref="lib.path.ref" srcdir="src" destdir="build/classes-payment" includes="payment/*.java" includeantruntime="false" />
 	</target>
 
 </project>
