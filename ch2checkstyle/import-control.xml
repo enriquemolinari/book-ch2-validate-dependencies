@@ -12,8 +12,6 @@
 	<!-- app.domain only talk to app.domain.api -->
 	<subpackage name="domain">
 		<allow pkg="app.domain.api" />
-		<disallow pkg="app.notifications" />
-		<disallow pkg="app.payments" />
 	</subpackage>
 
 	<!-- app.notifications only talk to app.domain.api -->
@@ -21,15 +19,11 @@
 	<subpackage name="notifications">
 		<allow pkg="app.domain.api" />
 		<allow pkg="com.leansoft.bigqueue"/>
-		<disallow pkg="app.domain" />
-		<disallow pkg="app.payments" />
 	</subpackage>
 
 	<!-- app.payment only talk to app.domain.api -->
 	<subpackage name="payment">
 		<allow pkg="app.domain.api" />
-		<disallow pkg="app.domain" />
-		<disallow pkg="app.notifications" />
 	</subpackage>
 	
 </import-control>
