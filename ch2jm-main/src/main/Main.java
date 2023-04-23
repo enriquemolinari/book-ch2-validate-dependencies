@@ -13,8 +13,8 @@ public class Main {
 
     new Cashier(
         new PayMePleasePaymentGateway("https://paymeplease-gateway.com"),
-        new BigQueueNotify("/home/enrique", "notification-queue"))
-            .pay(new BigDecimal(1000), new CreditCard("dd", "dd"), "sd");
+        new BigQueueNotify("/home/enrique", "notification-queue")).pay(
+            new BigDecimal(1000), new CreditCard("1235", "988"),
+            "user@email.com");
   }
-
 }
