@@ -7,6 +7,8 @@
 	</parent>
 	<artifactId>ch2maven-main</artifactId>
 
+	<packaging>jar</packaging>
+	
 	<dependencies>
 		<dependency>
 			<groupId>ch2maven</groupId>

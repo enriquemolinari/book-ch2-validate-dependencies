@@ -7,6 +7,8 @@
 	</parent>
 	<artifactId>ch2maven-notifications</artifactId>
 
+	<packaging>jar</packaging>
+	
 	<!-- Repository Required for BigQueue -->
 	<repositories>
 		<repository>
@@ -28,5 +30,4 @@
 			<version>0.7.0</version>
 		</dependency>
 	</dependencies>
-
 </project>
