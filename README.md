@@ -79,7 +79,8 @@ Each module declares in its `module-info.java` the packages it exports and the m
 by the compiler and at runtime, including access via reflection.
 
 - To download the BigQueue jar into your local Maven repository: `cd ch2jm-notifications && mvn dependency:resolve && cd ..`
-- To compile all modules:
+- To compile all modules (run it from the repository root). If all dependencies are valid, `javac` prints nothing and
+  the compiled modules are generated in the `out` folder. Any invalid dependency is reported as a compilation error:
 
 ```bash
 javac -d out \
